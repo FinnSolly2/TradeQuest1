@@ -87,33 +87,6 @@ Before deployment, ensure you have:
 5. **Finnhub API Key** (free tier available)
 6. **Hugging Face API Key** (optional, falls back to templates)
 
-## Project Structure
 
-```
-trade-quest/
-├── terraform/
-│   ├── main.tf              # Main infrastructure
-│   ├── variables.tf         # Variable definitions
-│   ├── outputs.tf          # Output values
-│   ├── providers.tf        # Provider configuration
-│   ├── versions.tf         # Version constraints
-│   └── terraform.tfvars    # Your configuration values
-├── lambda_functions/
-│   ├── finnhub_fetcher/    # Fetches real market data
-│   ├── price_simulator/    # Simulates price movements
-│   ├── news_generator/     # Generates AI news
-│   ├── api_get_prices/     # API: Get current prices
-│   ├── api_get_news/       # API: Get latest news
-│   ├── api_execute_trade/  # API: Execute trades
-│   ├── api_get_portfolio/  # API: Get user portfolio
-│   ├── api_get_leaderboard/# API: Get leaderboard
-│   └── session_checker/    # Check active sessions
-├── frontend/
-│   ├── index.html          # Main webpage
-│   ├── style.css           # Styling
-│   └── app.js              # JavaScript logic              
-├── deploy.yml              # Deployment script
-└── README.md               # This file
-```
 
 
