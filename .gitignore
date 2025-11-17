@@ -1,0 +1,60 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+tfplan
+*.tfplan
+
+# Lambda packages
+lambda_packages/
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+
+# AWS
+.aws/
+credentials
+config
+
+# Node modules 
+node_modules/
+
+# React build
+frontend/build/
+
+# Backup files
+*.bak
+*.backup
+frontend_old_backup/
