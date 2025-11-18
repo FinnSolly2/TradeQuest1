@@ -566,7 +566,7 @@ resource "aws_cloudwatch_event_rule" "hourly_simulation" {
   name                = "${var.project_name}-simulation-${var.environment}"
   description         = "Trigger simulation pipeline every 10 minutes"
   schedule_expression = var.simulation_schedule
-  is_enabled          = false  # PAUSED - Set to true to re-enable
+  is_enabled          = true
 }
 
 resource "aws_cloudwatch_event_target" "hourly_simulation_target" {
