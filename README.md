@@ -3,68 +3,8 @@
 A serverless trading simulator built on AWS that simulates real market dynamics using Finnhub API data, AI-generated news, and cloud-native architecture.
 
 ## Architecture Overview
+<img width="3034" height="1317" alt="image" src="https://github.com/user-attachments/assets/9308a0a7-b138-4051-b2ca-0d3c87527840" />
 
-```
-┌─────────────┐
-│   Finnhub   │
-│     API     │
-└──────┬──────┘
-       │
-       v
-┌─────────────────────────────────────────────────────────┐
-│                    AWS CLOUD                            │
-│                                                         │
-│  ┌─────────────┐    ┌──────────────┐                  │
-│  │ EventBridge │───>│Step Functions│                  │
-│  │  (Hourly)   │    │  Workflow    │                  │
-│  └─────────────┘    └──────┬───────┘                  │
-│                             │                           │
-│                     ┌───────┴───────┐                  │
-│                     │                │                  │
-│              ┌──────v──────┐ ┌──────v────────┐        │
-│              │  Finnhub    │ │    Price      │        │
-│              │   Fetcher   │ │  Simulator    │        │
-│              │   Lambda    │ │   Lambda      │        │
-│              └──────┬──────┘ └───────┬───────┘        │
-│                     │                 │                 │
-│                     v                 v                 │
-│              ┌─────────────────────────┐               │
-│              │      S3 Buckets         │               │
-│              │ (Market Data & News)    │               │
-│              └──────────┬──────────────┘               │
-│                         │                               │
-│                         v                               │
-│              ┌──────────────────┐                      │
-│              │   News Generator │                      │
-│              │  Lambda (AI)     │                      │
-│              └──────────────────┘                      │
-│                                                         │
-│  ┌──────────────────────────────────────────────┐     │
-│  │           API Gateway (HTTP)                 │     │
-│  └──────────┬───────────────────────────────────┘     │
-│             │                                           │
-│      ┌──────┴──────────┬────────┬──────────┐          │
-│      v                  v        v          v          │
-│  ┌────────┐      ┌──────────┐ ┌──────┐ ┌─────────┐   │
-│  │Get     │      │Execute   │ │Get   │ │Get      │   │
-│  │Prices  │      │Trade     │ │News  │ │Portfolio│   │
-│  │Lambda  │      │Lambda    │ │Lambda│ │Lambda   │   │
-│  └────────┘      └──────────┘ └──────┘ └─────────┘   │
-│      │                 │          │          │         │
-│      └────────┬────────┴──────────┴──────────┘         │
-│               v                                         │
-│      ┌────────────────┐      ┌─────────────┐          │
-│      │   DynamoDB     │      │   Cognito   │          │
-│      │   Tables       │      │   (Auth)    │          │
-│      └────────────────┘      └─────────────┘          │
-└─────────────────────────────────────────────────────────┘
-                          │
-                          v
-                 ┌─────────────────┐
-                 │  Frontend HTML  │
-                 │   (Browser)     │
-                 └─────────────────┘
-```
 
 ## Features
 
@@ -84,7 +24,7 @@ Before deployment, ensure you have:
 2. **AWS CLI** configured with credentials
 3. **Terraform** (v1.6.0 or higher)
 4. **Python 3.11** or higher
-5. **Finnhub API Key** (free tier available)
+5. **Yahoo Finance API Key** 
 6. **Hugging Face API Key** (optional, falls back to templates)
 
 
